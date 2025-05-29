@@ -1,0 +1,93 @@
+
+.genero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  width: 100%;
+ 
+}
+
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-start;
+}
+
+ion-button, .genero{
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  background-color: #2a2a2a;
+  color: #fafafa;
+  transition: background-color 0.3s ease;
+}
+
+
+.custom-footer {
+  background: linear-gradient(to bottom, #2a2a2a, #000);
+  color: white;
+  padding: 20px;
+  position: relative;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .left-text {
+      font-size: 1.8rem;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 50%;
+      line-height: 1.2;
+    }
+
+    .right-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+
+      .group-title {
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 8px 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.5s ease, color 0.5s ease;
+
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      .group-names {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        ul {
+          list-style-type: disc;
+          padding-left: 20px;
+          font-size: 0.95rem;
+
+          li {
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.titulo-clicavel {
+  cursor: pointer;
+  user-select: none;
+  color: #fafafa; /* Cor azul padrão do Ionic */
+  transition: opacity 0.2s;
+}

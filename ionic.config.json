@@ -1,0 +1,7 @@
+{
+  "name": "Potato",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

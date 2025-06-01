@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FiltatoService } from '../services/filtato.service';
-import { FilmesService } from '../services/filmes.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-favoritados',

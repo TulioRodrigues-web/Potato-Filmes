@@ -14,7 +14,10 @@ export class FiltatoService {
   
   
   constructor(private http: HttpClient) { }
-  // Gera o cabeçalho de autorização com o token para autenticar as requisições
+
+
+
+ // Ger a o cabeçalho de autorização com o token para autenticar as requisições
   private getHeaders(): HttpHeaders{
     return new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
@@ -43,13 +46,8 @@ export class FiltatoService {
     });
   }
 
-  // Filmes em cartaz
-  getNowPlaying(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/movie/now_playing?language=pt-BR&region=BR`, {
-      headers: this.getHeaders(),
-    });
-  }
-  // Buscar filmes
+  
+// Buscar filmes
   searchMovie(query: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/search/movie?language=pt-BR&query=${query}`, {
       headers: this.getHeaders(),

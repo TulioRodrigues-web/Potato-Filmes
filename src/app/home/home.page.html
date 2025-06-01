@@ -43,11 +43,18 @@
     </ion-segment-button>
   </ion-segment>
 
+
+    <!-- Botão para acessar a tela de Favoritos -->
+       <ion-button routerLink="/favoritados" color="tertiary" style="margin: 16px;">
+    ⭐ Favoritados
+      </ion-button>
+
+
   <!-- Exibição em grade dos filmes, apenas se houver pelo menos 1/ +1 ponto-->
   <ion-grid *ngIf="filmes.length > 0">
     <ion-row>
 
-      <!-- Para cada filme da lista, gera uma coluna com um card -->
+      <!-- Para cada filme da lista, gera uma coluna com um card / +1 ponto-->
       <ion-col size="20" size-md="7" size-lg="2.4" *ngFor="let filme of filmes | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <!-- Card do filme com estilo de cor e layout flexível -->
@@ -98,12 +105,12 @@
 </pagination-controls>
 
 
-  <!-- Exibe mensagem caso nenhum filme tenha sido encontrado -->
+  <!-- Exibe mensagem caso nenhum filme tenha sido encontrado / +1 ponto-->
   <ion-item *ngIf="filmes.length === 0">
     <ion-label>Nenhum filme ou série encontrado.</ion-label>
   </ion-item>
 
-  <!-- Card extra que mostra os integrantes do grupo se mostrarIntegrantes for true -->
+  <!-- Card extra que mostra os integrantes do grupo se mostrarIntegrantes for true / +1 ponto-->
   <ion-card *ngIf="mostrarIntegrantes" class="card-integrantes">
     <ion-card-header>
       <ion-card-title>Integrantes do Grupo</ion-card-title>

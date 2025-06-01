@@ -32,6 +32,7 @@ export class GenerosPage implements OnInit {
 
     });
   }
+  
 //metodo de filtragem dos filmes com base no ID do genero selecionado
   filterFilmes(generoId: number){
     this.selecteGenero= generoId;

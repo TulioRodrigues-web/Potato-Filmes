@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class FavoritadosPage implements OnInit {
+
+  
   favoritos: any[] = []; // Guarda a lista de filmes favoritos
+  
   filmeDetalhes: any = null; // guarda o filme selecionado para mostrar detalhes
 
   constructor(private filtatoService: FiltatoService, private router: Router) { }

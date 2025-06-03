@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
+import { Injectable } from '@angular/core';// Importa o decorador Injectable para permitir a injeção de dependência deste serviço em outros componentes
+
+import { HttpClient, HttpHeaders } from '@angular/common/http'; // Importa classes para fazer requisições HTTP e configurar cabeçalhos
+
+import { Observable } from 'rxjs'; // Importa a classe Observable do RxJS para trabalhar com respostas assíncronas
 
 
 @Injectable({
@@ -14,17 +17,23 @@ export class FilmesService {
    private apiUrl = "https://api.themoviedb.org/3"
 
   constructor(private http: HttpClient) { }
-  //metodos get:
-  // Busca lista de gêneros: metodos que busca os filmes da api e retorna na pagina
+  /*Método: getGeneros()
+    - Busca a lista de gêneros de filmes da API
+    - Retorna um Observable com os dados dos gêneros
+    - Adiciona o token de autenticação no header da requisição
 
 
-  /*getGeneros(): Observable<any>
 
-   - Busca a lista completa de gêneros de filmes
+   SOBRE OBSERVABLE:
+    ------------------
+    - Um Observable funciona como uma "entrega de dados assíncronos"
 
-   - Retorna um Observable com o array de gêneros
-   
-   - Requer autenticação via token no header
+    - Ele espera os dados chegarem da API e depois te avisa quando estiverem prontos
+
+    - Para acessar os dados de um Observable, usamos .subscribe(), como:
+    this.filmesService.getGeneros().subscribe(dados => { ... });
+
+    - É como se você "assinasse" uma revista: ela chega quando estiver pronta
    
    */
 
@@ -34,9 +43,15 @@ export class FilmesService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   
     return this.http.get(`${this.apiUrl}/genre/movie/list`, {headers});
-
-  }
     
+    /*Método: getGeneros()
+    - Busca a lista de gêneros de filmes da API
+    - Retorna um Observable com os dados dos gêneros
+    - Adiciona o token de autenticação no header da requisição
+    */
+  }
+
+  
 
 // ==========================================================================================================
  
@@ -50,6 +65,12 @@ export class FilmesService {
         language: 'pt-BR'
       }
     });
+
+    /*Método: buscarFilmesPorGenero(idGenero)
+    - Busca filmes filtrados por um ID de gênero específico
+    - Adiciona o token no header e envia o parâmetro with_genres e language
+    - Retorna um Observable com a lista de filmes
+  */
   }
   
   /* buscarFilmesPorGenero(idGenero: number): Observable<any>
@@ -73,5 +94,10 @@ export class FilmesService {
 getPaginaInicial(): Observable<any> {
   return this.http.get<any>('https://api.themoviedb.org/3');
 }
-
+ /*
+    Método: getPaginaInicial()
+    - Retorna o conteúdo padrão da URL base da API
+    - Pode ser usado para testar se a API está acessível
+    - Também retorna um Observable, ou seja: os dados virão de forma assíncrona e você acessa com .subscribe()
+  */
 }

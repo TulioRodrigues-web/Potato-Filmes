@@ -5,15 +5,16 @@ import { NgxPaginationModule } from 'ngx-pagination';// (Import desnecessário a
 
 
 @Component({
+  
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: false,
+
 })
 export class HomePage {
 
-   PaginaInicial: any[] = [] // Armazena dados da página inicial da API
-   mostrarIntegrantes = false; // Controle de exibição (provavelmente usado no HTML)
+   PaginaInicial: any[] = [] // Armazena dados da página inicial da API 
    filmes: any[] = []; // Lista de filmes/séries mostrados
    favoritos: any[] = []; // Lista de favoritos salvos
    seachTerm: string = ''; // Termo de busca digitado pelo usuário
@@ -70,7 +71,7 @@ export class HomePage {
       }));
     },
      error:(err) => {
-      console.error('Oxe, deu erro aqui ao busca a bobonica do filme', err);
+      console.error('Oxe, deu erro aqui ao buscar a bobonica do filme', err);
      }
   });
  }
@@ -157,7 +158,7 @@ addToFavorites(filme: any){
     filme.favoritado = true;
     localStorage.setItem('favoritos', JSON.stringify(this.favoritos));
   }else {
-    alert('Filme já foi favoritado oh Alzheimer')
+    alert('Filme já foi favoritado, oh Alzheimer')
   }
 }
 
